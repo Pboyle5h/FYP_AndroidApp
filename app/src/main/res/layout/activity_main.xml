@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@drawable/back2">
+
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="75dp"
+        android:id="@+id/storeBtn"
+        android:background="@drawable/btnstore"
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="75dp"
+        android:id="@+id/imageButton2"
+        android:background="@drawable/btnaccount1"
+        android:clickable="true" />
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="75dp"
+        android:id="@+id/contactBtn"
+        android:background="@drawable/btncontact"
+        android:clickable="true" />
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="75dp"
+        android:id="@+id/aboutBtn"
+        android:background="@drawable/btnabout"
+        android:clickable="true" />
+</LinearLayout>

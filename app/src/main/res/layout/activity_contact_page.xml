@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:padding="10dp"
+     android:orientation="vertical"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+    android:background="@drawable/back2">
+
+
+     android:padding="10dp"
+     android:orientation="vertical"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="@drawable/back2">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Address"
+        android:id="@+id/textView4"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="The Warehouse Gym"
+        android:id="@+id/textView"
+        android:layout_gravity="right"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Old Monivea Rd"
+        android:id="@+id/textView2"
+        android:layout_gravity="right"
+        android:layout_below="@+id/textView4"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Galway"
+        android:id="@+id/textView3"
+        android:layout_gravity="right"
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="75dp"
+        android:id="@+id/viewMap"
+        android:background="@drawable/btnviewmap"
+        android:clickable="true"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4"
+        android:layout_alignBottom="@+id/textView3" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/etMessage"
+        android:text=" "
+        android:background="#fcfbfd"
+        android:layout_below="@+id/textView5"
+        android:layout_toLeftOf="@+id/textView3"
+        android:layout_toStartOf="@+id/textView3" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:id="@+id/btnSendMessage"
+        android:background="@drawable/btnsendmessage"
+        android:clickable="true"
+        android:layout_below="@+id/etMessage"
+        android:layout_alignLeft="@+id/etMessage"
+        android:layout_alignStart="@+id/etMessage"
+        android:layout_alignRight="@+id/etMessage"
+        android:layout_alignEnd="@+id/etMessage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Enter Message Below:"
+        android:id="@+id/textView5"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView6"
+        android:layout_alignLeft="@+id/etMessage"
+        android:layout_alignStart="@+id/etMessage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Telephone"
+        android:id="@+id/textView6"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/viewMap"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="(091) 769 700"
+        android:id="@+id/textView7"
+        android:layout_gravity="right"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
