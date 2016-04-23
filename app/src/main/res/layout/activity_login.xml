@@ -1,51 +1,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp"
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@drawable/back">
 
 
-
-    <TextView
-        android:text="Username"
-        android:textColor="#e5dde1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/textView12" />
-
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:textColor="#e5dde1"
+        android:hint="Username"
+        android:textColorHint="#a09e9e"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView12"
-        android:layout_alignLeft="@+id/textView12"
-        android:layout_alignStart="@+id/textView12" />
-
-    <TextView
-        android:text="Password"
-        android:textColor="#e5dde1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etUsername"
-        android:layout_alignLeft="@+id/etUsername"
-        android:layout_alignStart="@+id/etUsername"
-        android:id="@+id/textView13" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="48dp" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:textColor="#e5dde1"
         android:inputType="textPassword"
+        android:hint="Password"
+        android:textColorHint="#FFA09E9E"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView13"
-        android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13" />
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/etUsername"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:password="true" />
 
     <TextView
         android:id="@+id/tvRegisterLink"
@@ -60,7 +46,7 @@
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:id="@+id/bLogin"
         android:background="@drawable/btnlogin"
         android:layout_below="@+id/etPassword"

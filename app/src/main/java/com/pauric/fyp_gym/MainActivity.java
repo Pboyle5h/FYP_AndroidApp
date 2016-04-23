@@ -1,20 +1,24 @@
 package com.pauric.fyp_gym;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener{
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageButton contactBtn = (ImageButton) findViewById(R.id.contactBtn);
@@ -28,13 +32,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     }
 
-
-    @Override
-    //if user is not logged in sign in page will be loaded
-    protected void onStart() {
-        super.onStart();
-
-    }
 
     @Override
     public void onClick(View v) {

@@ -1,5 +1,6 @@
 package com.pauric.fyp_gym;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -20,12 +22,13 @@ import java.net.URL;
 import java.util.HashMap;
 
 
-public class Register extends AppCompatActivity implements View.OnClickListener{
+public class Register extends Activity implements View.OnClickListener{
     EditText etName, etAge, etUsername, etPassword;
     ImageButton bRegister;
     public static final String REGISTER_URL = "http://pboyle5h.hol.es/Project/Register.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 

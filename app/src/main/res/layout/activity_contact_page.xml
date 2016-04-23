@@ -76,11 +76,12 @@
         android:layout_width="250dp"
         android:layout_height="200dp"
         android:inputType="textMultiLine"
+        android:hint="Enter Message here:"
+        android:textColorHint="#676565"
         android:ems="10"
         android:id="@+id/etMessage"
-        android:text=" "
         android:background="#fcfbfd"
-        android:layout_below="@+id/textView5"
+        android:layout_above="@+id/btnSendMessage"
         android:layout_toLeftOf="@+id/textView3"
         android:layout_toStartOf="@+id/textView3" />
 
@@ -90,23 +91,12 @@
         android:id="@+id/btnSendMessage"
         android:background="@drawable/btnsendmessage"
         android:clickable="true"
-        android:layout_below="@+id/etMessage"
+        android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/etMessage"
         android:layout_alignStart="@+id/etMessage"
+        android:layout_marginBottom="108dp"
         android:layout_alignRight="@+id/etMessage"
         android:layout_alignEnd="@+id/etMessage" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Enter Message Below:"
-        android:id="@+id/textView5"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView6"
-        android:layout_alignLeft="@+id/etMessage"
-        android:layout_alignStart="@+id/etMessage" />
 
     <TextView
         android:layout_width="wrap_content"

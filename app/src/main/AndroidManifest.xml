@@ -46,9 +46,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
         <service
             android:name="com.paypal.android.sdk.payments.PayPalService"
             android:exported="false" />
+
         <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
         <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
         <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
@@ -57,12 +59,10 @@
             android:name="com.paypal.android.MEP.PayPalActivity"
             android:configChanges="keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <activity
             android:name="io.card.payment.CardIOActivity"
             android:configChanges="keyboardHidden|orientation" />
         <activity android:name="io.card.payment.DataEntryActivity" />
-
         <activity
             android:name=".Location"
             android:label="@string/title_activity_location" />
@@ -71,11 +71,10 @@
             android:label="@string/title_activity_contact_page" />
         <activity
             android:name=".AboutPage"
-            android:label="@string/title_activity_about_page"></activity>
+            android:label="@string/title_activity_about_page" />
         <activity
             android:name=".Store"
-            android:label="@string/title_activity_store"></activity>
-
+            android:label="@string/title_activity_store" />
     </application>
 
 </manifest>

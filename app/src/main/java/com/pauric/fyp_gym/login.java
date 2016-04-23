@@ -1,5 +1,6 @@
 package com.pauric.fyp_gym;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -15,13 +17,13 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 
-public class login extends ActionBarActivity implements View.OnClickListener  {
+public class login extends Activity implements View.OnClickListener  {
 
 
     ImageButton bLogin;
     TextView registerLink;
     EditText etUsername, etPassword;
-    userLocalStore userLocalStore;
+
 
         public static final String USER_NAME = "username";
 
@@ -31,6 +33,7 @@ public class login extends ActionBarActivity implements View.OnClickListener  {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
+            requestWindowFeature(Window.FEATURE_NO_TITLE);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
 
@@ -40,13 +43,16 @@ public class login extends ActionBarActivity implements View.OnClickListener  {
             bLogin = (ImageButton) findViewById(R.id.bLogin);
             registerLink.setOnClickListener(this);
             bLogin.setOnClickListener(this);
+            etPassword.setOnClickListener(this);
+            etUsername.setOnClickListener(this);
         }
 
 
         private void login(){
             String username = etUsername.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
-            userLogin(username,password);
+            Util.uName=username;
+            userLogin(username, password);
         }
 
         private void userLogin(final String username, final String password){
@@ -101,6 +107,12 @@ public class login extends ActionBarActivity implements View.OnClickListener  {
             case R.id.tvRegisterLink:
                 Intent registerIntent = new Intent(login.this, Register.class);
                 startActivity(registerIntent);
+                break;
+            case R.id.etUsername:
+                etUsername.setHint("");
+                break;
+            case R.id.etPassword:
+                etPassword.setHint("");
                 break;
 
         }
