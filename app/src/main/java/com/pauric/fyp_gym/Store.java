@@ -39,19 +39,12 @@ public class Store extends Activity implements View.OnClickListener {
     private static final int REQUEST_CODE_PAYMENT = 1;
 
     // PayPal configuration
-   /* private static PayPalConfiguration paypalConfig = new PayPalConfiguration()
-            .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(
-                    Util.paypal_sdk_id);*/
+
     private static PayPalConfiguration paypalConfig=new PayPalConfiguration()
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
             .clientId( Util.paypal_sdk_id)
-            .acceptCreditCards(true)
-                    // The following are only used in PayPalFuturePaymentActivity.
-            .merchantName("Code_Crash")
-            .merchantPrivacyPolicyUri(
-                    Uri.parse("https://www.paypal.com/webapps/mpp/ua/privacy-full"))
-            .merchantUserAgreementUri(
-                    Uri.parse("https://www.paypal.com/webapps/mpp/ua/useragreement-full"));
+            .acceptCreditCards(true);
+
 
 
     @Override
@@ -79,6 +72,8 @@ public class Store extends Activity implements View.OnClickListener {
 
             @Override
             public void onClick(View v) {
+                //switch statemnet to determine which button was clicked and then the data passed to the
+                //lauch Paypal Payment method
                 switch (v.getId()) {
                     case R.id.membershipBtn1:
                         launchPayPalPayment(49.00, uName);
@@ -96,27 +91,17 @@ public class Store extends Activity implements View.OnClickListener {
 
                 }
 
-                //call pay pal sdk method
+
 
             }
 
 
-
-
-
-
-
-
     private void launchPayPalPayment(double cost, String type) {
-
+        //starts the paypal intent with the details of the item and cost
         PayPalPayment thingToBuy = new PayPalPayment(new BigDecimal(cost),"EUR", type,PayPalPayment.PAYMENT_INTENT_SALE);
-
         Intent intent = new Intent(Store.this, PaymentActivity.class);
-
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, paypalConfig);
-
         intent.putExtra(PaymentActivity.EXTRA_PAYMENT, thingToBuy);
-
         startActivityForResult(intent, REQUEST_CODE_PAYMENT);
     }
 
@@ -125,6 +110,7 @@ public class Store extends Activity implements View.OnClickListener {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //checks to if the transaction was completed or failed
         if (requestCode == REQUEST_CODE_PAYMENT) {
             if (resultCode == Activity.RESULT_OK) {
 

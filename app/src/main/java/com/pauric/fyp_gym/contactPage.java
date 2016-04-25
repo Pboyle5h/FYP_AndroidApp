@@ -3,16 +3,13 @@ package com.pauric.fyp_gym;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -34,7 +31,8 @@ public class contactPage extends Activity implements View.OnClickListener {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_page);
-        etMessage = (EditText) findViewById(R.id.etMessage);
+
+        etMessage = (EditText) findViewById(R.id.name);
         ImageButton Map = (ImageButton) findViewById(R.id.viewMap);
         Map.setOnClickListener(this);
         ImageButton sendMessage = (ImageButton) findViewById(R.id.btnSendMessage);
@@ -43,7 +41,7 @@ public class contactPage extends Activity implements View.OnClickListener {
     }
 
     public void onClick(View v) {
-
+    //switch statment to determine which button was clicked
         switch (v.getId()) {
             case R.id.viewMap:
                 Intent map = new Intent(this, Location.class);
@@ -52,7 +50,7 @@ public class contactPage extends Activity implements View.OnClickListener {
             case R.id.btnSendMessage:
                 sendEmail();
                 break;
-            case R.id.etMessage:
+            case R.id.name:
                 etMessage.setHint("");
                 break;
 
@@ -62,6 +60,7 @@ public class contactPage extends Activity implements View.OnClickListener {
 
     public void sendEmail() {
         eMessage = etMessage.getText().toString();
+        // setup of the java mail apis properties.
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
@@ -69,7 +68,7 @@ public class contactPage extends Activity implements View.OnClickListener {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
 
-
+        //signs into the email account so that the email can be sent
         session = Session.getDefaultInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication("warehousegymgalway16@gmail.com", "finalyearproject16");
@@ -92,8 +91,9 @@ public class contactPage extends Activity implements View.OnClickListener {
         protected String doInBackground(String... params) {
 
             try {
+                //sets up the message recipient and and subject line
                 Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress("testfrom354@gmail.com"));
+                message.setFrom(new InternetAddress("warehousegymgalway16@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(rec));
                 message.setSubject("Query from " + Util.uName);
                 message.setContent(eMessage, "text/html; charset=utf-8");
@@ -107,8 +107,11 @@ public class contactPage extends Activity implements View.OnClickListener {
         }
         @Override
         protected void onPostExecute(String result) {
+            //dialog box closed
             loading.dismiss();
+            //message box returned to blank
             etMessage.setText("");
+            //toast displayed to the user to say message sent
             Toast.makeText(getApplicationContext(), "Message sent", Toast.LENGTH_LONG).show();
         }
 

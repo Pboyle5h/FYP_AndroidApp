@@ -1,16 +1,11 @@
 package com.pauric.fyp_gym;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 
 public class MainActivity extends Activity implements View.OnClickListener{
@@ -28,6 +23,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         ImageButton storeBtn = (ImageButton) findViewById(R.id.storeBtn);
         storeBtn.setOnClickListener(this);
 
+        ImageButton btnAccount = (ImageButton) findViewById(R.id.btnAccount);
+        btnAccount.setOnClickListener(this);
 
 
     }
@@ -35,8 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
-
+        // switch statement to determine which button has been clicked
         switch (v.getId()) {
             case R.id.contactBtn:
                 Intent contact = new Intent(this, contactPage.class);
@@ -50,6 +46,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 Intent storeIntent = new Intent(MainActivity.this, Store.class);
                 startActivity(storeIntent);
                 break;
+            case R.id.btnAccount:
+                Intent account = new Intent(this, Account.class);
+                startActivity(account);
+                break;
+
 
         }
     }

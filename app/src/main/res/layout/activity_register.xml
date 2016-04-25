@@ -28,7 +28,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Age"
+        android:text="Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etName"
@@ -37,7 +37,7 @@
         android:id="@+id/textView9" />
 
     <EditText
-        android:id="@+id/etAge"
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView9"
@@ -47,7 +47,7 @@
         android:text="Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etAge"
+        android:layout_below="@+id/etEmail"
         android:id="@+id/textView11" />
 
     <EditText
@@ -80,9 +80,9 @@
             android:id="@+id/bRegister"
             android:background="@drawable/btnregister"
             android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/etPassword"
             android:layout_toRightOf="@+id/textView8"
-            android:layout_toEndOf="@+id/textView8" />
+            android:layout_toEndOf="@+id/textView8"
+            android:layout_below="@+id/etPassword" />
 
     </RelativeLayout>
 </ScrollView>

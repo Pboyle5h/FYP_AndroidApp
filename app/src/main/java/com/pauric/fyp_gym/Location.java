@@ -42,11 +42,10 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker to warehouse gym  and move the camera
         LatLng warehouse = new LatLng(53.289502, -9.015941);
-        LatLng test = new LatLng(52.289502, -9.015941);
-        Intent aboutIntent = new Intent(Location.this, AboutPage.class);
         mMap.addMarker(new MarkerOptions().position(warehouse).title("Warhouse Gym Galway"));
+        //zooms into the marker
         float zoomLevel = (float)16.0;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(warehouse, zoomLevel));
     }

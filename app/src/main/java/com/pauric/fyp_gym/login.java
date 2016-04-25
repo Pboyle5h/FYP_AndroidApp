@@ -70,7 +70,6 @@ public class login extends Activity implements View.OnClickListener  {
                     loading.dismiss();
                     if(s.equalsIgnoreCase("success")){
                         Intent intent = new Intent(login.this,MainActivity.class);
-                        intent.putExtra(USER_NAME,username);
                         startActivity(intent);
                     }else{
                         Toast.makeText(login.this, s, Toast.LENGTH_LONG).show();
@@ -79,6 +78,7 @@ public class login extends Activity implements View.OnClickListener  {
 
                 @Override
                 protected String doInBackground(String... params) {
+                    // the user inputted data entered passed to a hash map and passed to server requests
                     HashMap<String,String> data = new HashMap<>();
                     data.put("username",params[0]);
                     data.put("password",params[1]);

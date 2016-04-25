@@ -1,29 +1,25 @@
-package com.pauric.fyp_gym;
 
+
+package com.pauric.fyp_gym;
+import android.app.Activity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.HashMap;
 
 
 public class Register extends Activity implements View.OnClickListener{
-    EditText etName, etAge, etUsername, etPassword;
+    EditText etName, etEmail, etUsername, etPassword, etAge;
     ImageButton bRegister;
     public static final String REGISTER_URL = "http://pboyle5h.hol.es/Project/Register.php";
     @Override
@@ -33,11 +29,11 @@ public class Register extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_register);
 
         etName = (EditText) findViewById(R.id.etName);
-        etAge = (EditText) findViewById(R.id.etAge);
+        etEmail = (EditText) findViewById(R.id.etEmail);
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
         bRegister = (ImageButton) findViewById(R.id.bRegister);
-
+        //on click listener which is always listening for click event
         bRegister.setOnClickListener(this);
     }
 
@@ -48,17 +44,17 @@ public class Register extends Activity implements View.OnClickListener{
     }
 
     private void registerUser() {
+        //get the data entered by the user
         String name = etName.getText().toString().trim().toLowerCase();
-        String age = etAge.getText().toString().trim().toLowerCase();
+        String email = etEmail.getText().toString().trim().toLowerCase();
         String username = etUsername.getText().toString().trim().toLowerCase();
         String password = etPassword.getText().toString().trim().toLowerCase();
-
-        register(name, age, username, password);
+        //passes them to the register method
+        register(name, email, username, password);
     }
 
-    private void register(String name, String username, String password, String age) {
-        String urlSuffix = "?name="+name+"&email="+age+"&username="+username+"&password="+password;
-        class RegisterUser extends AsyncTask<String, Void, String> {
+    private void register(String name, String username, String password, String email) {
+            class RegisterUser extends AsyncTask<String, Void, String> {
             ServerRequests SR = new ServerRequests();
             ProgressDialog loading;
 
@@ -81,12 +77,13 @@ public class Register extends Activity implements View.OnClickListener{
 
             @Override
             protected String doInBackground(String... params) {
+               //passes the data into a hash map
                 HashMap<String, String> data = new HashMap<String,String>();
                 data.put("name",params[0]);
                 data.put("email",params[1]);
                 data.put("username",params[2]);
                 data.put("password", params[3]);
-
+                // the hash map is then passed to the server requests along with the url
                 String result = SR.sendPostRequest(REGISTER_URL,data);
 
                 return  result;
@@ -94,7 +91,7 @@ public class Register extends Activity implements View.OnClickListener{
         }
 
         RegisterUser ru = new RegisterUser();
-        ru.execute(name,username,password,age);
+        ru.execute(name,username,password,email);
     }
 
 }
