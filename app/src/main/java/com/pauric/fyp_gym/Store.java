@@ -76,7 +76,7 @@ public class Store extends Activity implements View.OnClickListener {
                 //lauch Paypal Payment method
                 switch (v.getId()) {
                     case R.id.membershipBtn1:
-                        launchPayPalPayment(49.00, uName);
+                        launchPayPalPayment(49.00, "1 Months Membership");
                         break;
                     case R.id.membershipBtn3:
                         launchPayPalPayment(140.00,"3 Months Membership");
